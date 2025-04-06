@@ -21,15 +21,15 @@ Esta es una aplicación web desarrollada con Spring Boot para la gestión de lib
 
 #### 2.3 Búsqueda de Libros
 **Descripción:** Sistema de búsqueda que permite a los usuarios encontrar libros específicos en la biblioteca.
-![Búsqueda de libros](src\main\resources\static\screnshoots\sexta.png)
+![Búsqueda de libros](src\main\resources\static\screnshoots\sexta.png )
 
 #### 2.4 Detalles del Libro
 **Descripción:** Al hacer clic en el título de cualquier libro, el sistema muestra una vista detallada con toda la información del libro seleccionado.
-![Detalles del libro](src\main\resources\static\screnshoots\septima.png)
+![Detalles del libro](src\main\resources\static\screnshoots\septima.png )
 
 #### 3.2 Registrar Usuario
 **Descripción:** Interfaz para registrar información de usuarios.
-![Registrar usuario](src\main\resources\static\screnshoots\quinta.png)
+![Registrar usuario](src\main\resources\static\screnshoots\quinta.png )
 
 ## Tecnologías Utilizadas
 - Spring Boot
