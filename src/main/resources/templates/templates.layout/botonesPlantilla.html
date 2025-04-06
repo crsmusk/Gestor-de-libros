@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section th:fragment="libroBoton" class="py-4 mb-4 bg-light">
+       <div class="container">
+            <div class="row">
+                <div class="col-md-3 " sec:authorize="hasRole('ROLE_ADMIN')">
+                    <button type="button" class="btn btn-outline-secondary"  ><a th:href="@{/modificar-agregar-libro}">agregar libro</a></button>
+                </div>
+            </div>
+       </div>
+    </section>
+    <section th:fragment="usuarioBoton"  class="py-4 mb-4 bg-light">
+        <div class="row">
+            <div class="col-md-3 " sec:authorize="hasRole('ROLE_ADMIN')">
+              <button type="button" class="btn btn-outline-secondary"  ><a th:href="@{/modificar-agregar-usuario}">agregar usuario</a></button>
+           </div>
+       </div>
+    </section>
+</body>
+</html>

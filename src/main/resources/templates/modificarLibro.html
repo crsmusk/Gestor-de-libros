@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{templates.layout/plantilla :: head}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Libro</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+
+<body>
+    <div th:replace="~{templates.layout/plantilla :: barra}"></div>
+
+  <h1 class="bg-secondary p-3 text-white">Modificar/Agregar Libro</h1>
+  <br>
+  
+  <div class="container cold-md-3">
+    <a th:href="@{/}">Volver al inicio</a>
+
+    <form th:action="@{/guardar-libro}" method="post" th:object="${LibroDto}" enctype="multipart/form-data">
+      <br />
+      <input type="text" name="titulo" class="form-control" th:field="*{titulo}" placeholder="Título del libro" required>
+      <br />
+      <input type="text" name="autores" class="form-control" th:field="*{autores}" placeholder="Autores" required>
+      <br />
+      <input type="text" name="generos" class="form-control" th:field="*{generos}" placeholder="Géneros" required>
+      <br />
+      <input type="text" name="isbn" class="form-control" th:field="*{isbn}" placeholder="ISBN" required>
+      <br />
+      <input type="file" name="portada" class="form-control" th:field="*{portada}" placeholder="Portada del libro" required>
+      <br />
+      <textarea name="descripcion" class="form-control" th:field="*{descripcion}" rows="4" cols="50" placeholder="Descripción"></textarea>
+      <br />
+      <input class="upload" type="submit" value="Guardar">
+    </form>
+  </div>
+
+
+
+</body>
+
+</html>

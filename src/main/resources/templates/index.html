@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{templates.layout/plantilla :: head}">
+  <meta charset="UTF-8">
+  <title>Biblioteca</title>
+</head>
+<body>
+
+   <header th:replace="~{templates.layout/plantilla :: barra}"></header>
+  <hr/>
+
+  <nav class="busqueda">
+    <form th:action="@{/buscar-libro}" method="post">
+      <input type="text" class="form-control" name="titulo" placeholder="nombre del libro">
+      <input type="submit"  value="Buscar">
+    </form>
+  </nav>
+  <hr/>
+  
+  
+  
+  <button type="button" class="btn btn-outline-secondary" sec:authorize="hasRole('ROLE_ADMIN')" >
+    <a th:href="@{/modificar-agregar-libro}" 
+    class=" text-dark text-decoration-none" >registrar libro</a> 
+  </button>
+  <button type="button" class="btn btn-outline-secondary" sec:authorize="hasRole('ROLE_ADMIN')">
+    <a th:href="@{/modificar-agregar-usuario}" 
+    class=" text-dark text-decoration-none" >registrar usuario</a>
+  </button>
+   
+
+   <hr/>
+  <!--<div class="resultado" th:each="libro : ${busqueda}">
+    <p th:text="${libro.titulo}">Título del libro</p>
+    <p th:text="${libro.autor}">Autor del libro</p>
+  </div> -->
+
+  <div class="todo">
+    <table border="1" class="table">
+      <div class="card-header"><h2>libros</h2></div>
+      <thead class="table-dark">
+        <tr>
+         <th>Título</th>
+         <th>Autor</th>
+         <th>Género</th>
+         <th>ISBN</th>
+         <th sec:authorize="hasRole('ROLE_ADMIN')">Editar</th>
+         <th sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</th>
+       </tr>
+      </thead>
+     
+      <tr th:each="libro : ${libros}">
+        <td >
+          <a th:href="@{/mostrar-libro/} + ${libro.isbn}" th:text="${libro.titulo}" ></a>
+        </td>
+        <td th:text="${libro.autores}">Autor</td>
+        <td th:text="${libro.generos}">Género</td>
+        <td th:text="${libro.isbn}">ISBN</td>
+        <td sec:authorize="hasRole('ROLE_ADMIN')" >
+          <a th:href="@{/actualizar-libro/} + ${libro.isbn}" th:text="modificar" class="btn btn-secondary">
+            <i class="fas fa-angle-double-right"></i>
+          </a>
+        </td>
+        <td sec:authorize="hasRole('ROLE_ADMIN')">
+          <a th:href="@{/borrar-libro/} + ${libro.isbn}" th:text="borrar" class="btn btn-secondary">
+            <i class="fas fa-angle-double-right"></i>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+</body>
+</html>

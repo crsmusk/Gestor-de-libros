@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="~{templates.layout/plantilla :: head}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header th:replace="~{templates.layout/plantilla :: barra }"></header>
+    <div class="card-libro container mt-4">
+        <h2 th:text="${libro.titulo}"></h2>
+        <div class="row">
+            <!-- Columna izquierda: imagen cuadrada -->
+            <div class="col-md-3">
+                <div class="ratio ratio-1x1">
+                    <img th:src="@{${libro.portada}}" class="img-fluid rounded" alt="Portada del libro">
+                </div>
+            </div>
+
+            <!-- Columna derecha: autor y géneros -->
+            <div class="col-md-9">
+                <h5 class="mb-2">Autor: <span th:text="${libro.autores}">Nombre Autor</span></h5>
+                <p class="mb-0">
+                    <strong>Géneros:</strong>
+                    <span th:text="${libro.generos}">Género 1, Género 2</span>
+                </p>
+            </div>
+        </div>
+
+        <hr class="my-4">
+
+        <!-- Descripción -->
+        <div class="row">
+            <div class="col-12">
+                <h6>Descripción del libro:</h6>
+                <p th:text="${libro.descripcion}">
+                    Aquí va la descripción del libro...
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
